@@ -1,0 +1,23 @@
+%form(method='post' action='/source/new')
+    %dl.field
+        %dt.field-label
+            %label(for='name') Название
+        %dd.field-edit
+            %input(type='text' name='source[name]')
+        %dd.error
+            = validation_message 'source[name]'
+    %dl.field
+        %dt.field-label
+            %label(for='type') Тип компонента поставщика
+        %dd.field-edit
+            %select(name='source[type]' role='component')
+                = options_from @types
+        %dd.error
+            = validation_message 'source[type]'
+    %dl.field(role='params')
+        %dt.field-label
+            %label(for='params') Дополнительные параметры
+        %dd.error
+            = validation_message 'source[params]'
+    .submit
+        %input(type='submit' value='Создать')

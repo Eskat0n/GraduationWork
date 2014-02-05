@@ -1,0 +1,31 @@
+#system-info
+    %dl.system-info
+        %dt Время включения:
+        %dd= @start_time.to_longtime
+    %dl.system-info
+        %dt Время работы:
+        %dd= @work_time.strftime('%d дней %H:%M:%S')
+%hr
+#system-controls
+    %dl.system-control
+        %dt Внешний доступ:
+        %dd.button
+            - if @published
+                %span.unlock(title='Запретить внешний доступ')
+            - else
+                %span.lock(title='Разрешить внешний доступ')
+        %dd.description
+            - if @published
+                = 'Система доступна извне'
+            - else
+                = 'Система недоступна извне'
+%hr
+#system-navigation
+    %dl.system-navigation
+        %dt Перейти:
+        %dd.logs
+            %a.softlink(href='/system/logs') Просмотр журнала
+        %dd.config
+            %a.softlink(href='/system/config') Изменение параметров конфигурации
+        %dd.state 
+            %a.softlink(href='/system/state')= "Обзор состояния системы (#{@fatals_count} ошибок, #{@warnings_count} предупреждений)"

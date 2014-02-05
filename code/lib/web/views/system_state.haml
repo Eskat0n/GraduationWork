@@ -1,0 +1,21 @@
+#errors
+    %h4 Критические ошибки
+    - @fatals.each do |f|
+        .item.fatal-error
+            .item-content
+                %span.message= f[:message]
+                - unless f[:class_name].nil?
+                    %span.class-name= "[Класс ошибки: #{f[:class_name]}]"
+    - if @fatals.empty?
+        .item Отсутствуют
+    %h4 Предупреждения
+    - @warnings.each do |w|
+        .item.warning
+            .item-content
+                %span.message= w[:message]
+                - unless w[:class_name].nil?
+                    %br
+                    %span.class-name= "[Класс ошибки: #{w[:class_name]}]"
+    - if @warnings.empty?
+        .item Отсутствуют
+        

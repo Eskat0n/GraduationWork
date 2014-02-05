@@ -1,0 +1,100 @@
+#components.list
+    .group.list-item
+        .title
+            %h4 Компоненты получения исходного кода
+        %hr
+        - if @source_providers.empty?
+            .summary Компоненты отсутствуют
+        - first = true
+        - @source_providers.each do |sp|
+            - if first
+                - first = false
+                .delimeter
+            .component
+                .name= sp.name
+                .description= sp.description or 'Описание отсутствует'
+                .type= "Тип: #{sp.type}"
+                .params
+                    %span Параметры:
+                    %dl.params
+                        - params = sp.params_definition.select { |x| not x[:hidden] }
+                        - if params.empty?
+                            %span Отсутствуют
+                        - params.each do |p|
+                            %dt= p[:name]
+                            %dd= p[:description] or 'нет описания'
+
+    .group.list-item
+        .title
+            %h4 Компоненты сборки целей
+        %hr
+        - if @target_builders.empty?
+            .summary Компоненты отсутствуют
+        - first = true
+        - @target_builders.each do |tb|
+            - if first
+                - first = false
+                .delimeter
+            .component
+                .name= tb.name
+                .description= tb.description or 'Описание отсутствует'
+                .type= "Тип: #{tb.type}"
+                .params
+                    %span Параметры:
+                    %dl.params
+                        - params = tb.params_definition.select { |x| not x[:hidden] }
+                        - if params.empty?
+                            %span Отсутствуют
+                        - params.each do |p|
+                            %dt= p[:name]
+                            %dd= p[:description] or 'нет описания'
+
+    .group.list-item
+        .title
+            %h4 Компоненты запуска тестов
+        %hr
+        - if @test_runners.empty?
+            .summary Компоненты отсутствуют
+        - first = true
+        - @test_runners.each do |tr|
+            - if first
+                - first = false
+                .delimeter
+            .component
+                .name= tr.name
+                .description= tr.description or 'Описание отсутствует'
+                .type= "Тип: #{tr.type}"
+                .params
+                    %span Параметры:
+                    %dl.params
+                        - params = tr.params_definition.select { |x| not x[:hidden] }
+                        - if params.empty?
+                            %span Отсутствуют
+                        - params.each do |p|
+                            %dt= p[:name]
+                            %dd= p[:description] or 'нет описания'
+
+    .group.list-item
+        .title
+            %h4 Компоненты создания отчетов
+        %hr
+        - if @report_builders.empty?
+            .summary Компоненты отсутствуют
+        - first = true
+        - @report_builders.each do |rb|
+            - if first
+                - first = false
+                .delimeter
+            .component
+                .name= rb.name
+                .description= rb.description or 'Описание отсутствует'
+                .type= "Тип: #{rb.type}"
+                .params
+                    %span Параметры:
+                    %dl.params
+                        - params = rb.params_definition.select { |x| not x[:hidden] }
+                        - if params.empty?
+                            %span Отсутствуют
+                        - params.each do |p|
+                            %dt= p[:name]
+                            %dd= p[:description] or 'нет описания'

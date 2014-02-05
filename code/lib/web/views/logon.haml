@@ -1,0 +1,21 @@
+!!!
+%html
+    %head
+        %title Вход в систему
+        %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+
+        %link(rel='shortcut icon' type='image/x-icon' href='/favicon.ico')
+        %link(rel='stylesheet' type='text/css' href='/logon.css')
+    %body
+        #logon
+            %h3 Вход в систему
+            %form(action='/logon' method='post')
+                %ul
+                    %li
+                        %input(name='login' type='text' placeholder='Логин')
+                    %li
+                        %input(name='password' type='password' placeholder='Пароль')
+                    - if error
+                        %li.error Неправильная комбинация логина и пароля
+                    %li
+                        %input(type='submit' value='Войти')

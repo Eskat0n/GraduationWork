@@ -1,0 +1,23 @@
+!!!
+%html
+    %head
+        %title= "#{title} / #{INSTANCE_NAME}"
+        %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+
+        %link(rel='shortcut icon' type='image/x-icon' href='/favicon.ico')
+        %link(rel='stylesheet' type='text/css' href='/styles.css')
+
+        %script(type='text/javascript' src='/scripts/jquery-1.5.2.min.js')
+        %script(type='text/javascript' src='/scripts/jquery-ui-1.8.12.custom.min.js')
+        %script(type='text/javascript' src='/scripts/sledgehammer.js')
+    %body
+        - if defined? @warnings_count_popup
+            = partial :warnings_notify
+        = partial :admin_panel
+        %h2#title= INSTANCE_NAME
+        #navigation
+            %span.nav-item &larr;
+            %a.nav-item(href=backlink_href)= backlink_text
+        #content-wrap
+            %h2#content-title= title
+            = yield

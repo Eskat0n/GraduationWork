@@ -1,0 +1,10 @@
+#test_configs.list
+    - @test_configs.each do |tc|
+        .test_config.list-item
+            %h4
+                %a.softlink(href="/test_config/#{tc.id}")= tc.name
+            %hr
+            .summary= "Связанных проектов: #{tc.projects.size}"
+            %ul.actions
+                %li.delete-item
+                    %a(href="/test_config/delete/#{tc.id}" title='Удалить конфигурацию запуска тестов' data-target-title="#{tc.name}")

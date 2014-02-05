@@ -1,0 +1,23 @@
+%form(method='post' action='/test_config/new')
+    %dl.field
+        %dt.field-label
+            %label(for='name') Название
+        %dd.field-edit
+            %input(type='text' name='test_config[name]')
+        %dd.error
+            = validation_message 'test_config[name]'
+    %dl.field
+        %dt.field-label
+            %label(for='type') Тип компонента построителя
+        %dd.field-edit
+            %select(name='test_config[type]' role='component')
+                = options_from @types
+        %dd.error
+            = validation_message 'test_config[type]'
+    %dl.field(role='params')
+        %dt.field-label
+            %label(for='params') Дополнительные параметры
+        %dd.error
+            = validation_message 'test_config[params]'
+    .submit
+        %input(type='submit' value='Создать')

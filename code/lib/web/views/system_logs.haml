@@ -1,0 +1,8 @@
+#logs
+    %ul
+        - @logs.each do |log|
+            %li.log
+                %span.log-time= "[ #{log[:time].to_longtime} ]"
+                %a(href="/system/log/#{log[:filename]}")= log[:filename]
+                - if log[:is_current]
+                    %span [текущий]

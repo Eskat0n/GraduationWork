@@ -1,0 +1,17 @@
+#actions
+    %ul.actions
+        %li.delete-item
+            %a(href="/report_config/delete/#{@report_config.id}" title='Удалить конфигурацию отчетов' data-target-title="#{@report_config.name}")
+#details
+    #linked-projects.line= "Число связанных проектов: #{@report_config.projects.size}"
+    %hr.line
+    #params.line
+        - unless @report_config.params.empty?
+            %h5 Дополнительные параметры:
+            %ul.params
+                - @report_config.params.each do |name, value|
+                    %li.param
+                        %span.name= "#{name}:"
+                        %span.value= value
+        - else
+            %span.info Отсутствуют

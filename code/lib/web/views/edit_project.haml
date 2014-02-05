@@ -1,0 +1,52 @@
+%form(method='post' action='/project/edit')
+    %input(type='hidden' name='project[id]' value="#{@project.id}")
+    %dl.field
+        %dt.field-label
+            %label(for='title') Название проекта
+        %dd.field-edit
+            %input(type='text' name='project[title]' value="#{@project.title}")
+        %dd.error
+            = validation_message 'project[title]'
+    %dl.field
+        %dt.field-label
+            %label(for='description') Описание
+        %dd.field-edit
+            %input(type='text' name='project[description]' value="#{@project.description}")
+        %dd.error
+            = validation_message 'project[description]'
+    %dl.field
+        %dt.field-label
+            %label(for='email') Email ответственного
+        %dd.field-edit
+            %input(type='text' name='project[email]' value="#{@project.maintainer_email}")
+        %dd.hint
+            Адрес электронной почты, на который будут отсылаться сгенерированные отчеты
+        %dd.error
+            = validation_message 'project[email]'
+    %dl.field
+        %dt.field-label
+            %label(for='interval') Интервал обновления
+        %dd.field-edit
+            %input(type='text' name='project[interval]' value="#{@project.interval}")
+        %dd.hint
+            Интервал обновления задается в секундах. Значение по умолчанию: 60
+        %dd.error
+            = validation_message 'project[interval]'
+    %dl.field
+        %dt.field-label
+            %label(for='source') Источник исходных кодов
+        %dd.field-edit
+            %select(name='project[source]')
+                = options_from @sources
+        %dd.error
+            = validation_message 'project[source]'
+    %dl.field
+        %dt.field-label
+            %label(for='report_config') Конфигурация отчетов
+        %dd.field-edit
+            %select(name='project[report_config]')
+                = options_from @report_configs
+        %dd.error
+            = validation_message 'project[report_config]'
+    .submit
+        %input(type='submit' value='Сохранить изменения')

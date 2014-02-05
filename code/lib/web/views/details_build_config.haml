@@ -1,0 +1,17 @@
+#actions
+    %ul.actions
+        %li.delete-item
+            %a(href="/build_config/delete/#{@build_config.id}" title='Удалить конфигурацию сборки' data-target-title="#{@build_config.name}")
+#details
+    #linked-projects.line= "Число связанных проектов: #{@build_config.projects.size}"
+    %hr.line
+    #params.line
+        %h5 Дополнительные параметры:
+        - unless @build_config.params.empty?            
+            %ul.params
+                - @build_config.params.each do |name, value|
+                    %li.param
+                        %span.name= "#{name}:"
+                        %span.value= value
+        - else
+            %span.info Отсутствуют

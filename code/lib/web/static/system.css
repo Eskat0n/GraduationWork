@@ -1,0 +1,141 @@
+/* System administration panel
+----------------------------------------------------- */
+#admin {
+    margin-left: 75%;
+    padding: 3px 7px 4px 7px;
+    width: 120px;
+
+    background-color: #e6e5e3;
+    border: 1px solid #cecbc6;
+    border-top: none;
+
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    -moz-border-radius-bottomright: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#admin ul { height: 24px; }
+#admin ul li {
+    height: 24px;
+    width: 24px;
+    float: left;
+    margin-right: 8px;
+
+    background: transparent no-repeat center center;
+}
+#admin ul li:last-of-type { margin-right: 0; }
+#admin ul li.admin { background-image: url(/icons/config_icon.png); }
+#admin ul li.library { background-image: url(/icons/library_icon.png); }
+#admin ul li.power { background-image: url(/icons/power_icon.png); }
+#admin ul li.logoff { background-image: url(/icons/logoff_icon.png); }
+#admin ul li a { height: 24px; width: 24px; float: left; }
+
+/* System administration page styles
+----------------------------------------------------- */
+#system-info { margin-left: 5px; }
+
+dl.system-info { margin-top: 2px; }
+dl.system-info dt { float: left; margin-right: 5px; }
+dl.system-info dd { }
+
+#system-controls { margin: 10px 0 0 5px; }
+
+dl.system-control { margin-top: 2px; }
+dl.system-control dt { margin-bottom: 5px; }
+dl.system-control dd.button { float: left; margin-right: 5px; }
+dl.system-control dd.button span { 
+    width: 24px;
+    height: 24px;
+    float: left;
+    
+    background: transparent no-repeat center center;
+}
+dl.system-control dd.description { padding-top: 4px; }
+
+#system-controls span.lock { background-image: url(/icons/lock_icon.png); }
+#system-controls span.unlock { background-image: url(/icons/unlock_icon.png); }
+
+#system-navigation { margin: 10px 0 0 5px; }
+#system-navigation dt { margin-bottom: 4px; }
+#system-navigation dd { 
+    margin-top: 4px;
+    padding-left: 27px;
+    height: 24px;
+    
+    background: transparent no-repeat left center;
+}
+#system-navigation dd.logs { background-image: url(/icons/logs_icon.png); }
+#system-navigation dd.config { background-image: url(/icons/config_icon.png); }
+#system-navigation dd.state { background-image: url(/icons/state_icon.png); }
+
+#system-navigation dd a { padding-top: 4px; display: block; }
+
+/* Log overview page styles
+----------------------------------------------------- */
+#logs { margin-left: 5px; }
+#logs li.log { margin-top: 5px; }
+#logs li.log span.log-time { margin-right: 5px; }
+
+#log { margin: 0 5px; }
+#log .log-nav-item { margin-right: 10px; width: 120px; }
+#log #content {
+    margin-top: 15px;
+    padding: 5px;
+    width: 98%;
+    height: 600px;
+
+    border: 1px solid black;
+    overflow: scroll;
+    white-space: nowrap;
+
+    font-family: monospace;
+}
+
+/* System error pages styles
+----------------------------------------------------- */
+#error-content { padding-left: 5px; }
+#error-content p { margin: 3px 0; padding: 0; text-indent: 0; }
+#error-content p.subscript { color: #555; font-style: italic; }
+#error-content a.mail {
+    font-size: .8em;
+    text-decoration: none;
+    color: #834119;
+}
+#error-content a.mail:hover { color: #aa6f4c; }
+
+#errors h4 {
+    padding-left: 5px; margin: 7px 0;
+    font-weight: bold;
+}
+
+#errors .item {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+
+    margin: 3px 10px;
+    padding: 0 4px;
+    border: 1px solid transparent;
+}
+#errors .item-content {
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding: 6px 0 5px 28px;
+}
+#errors .fatal-error {
+    background-color: #edb6b6;
+    border-color: #ea5d5d;
+}
+#errors .fatal-error .item-content { background-image: url(/icons/error_icon.png); }
+#errors .warning {
+    background-color: #f2d787;
+    border-color: #edbd3b;
+}
+#errors .warning .item-content { background-image: url(/icons/warning_icon.png); }
+
+#errors .item span.class-name {
+    font-style: italic;
+}

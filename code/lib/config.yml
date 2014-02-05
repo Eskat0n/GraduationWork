@@ -1,0 +1,41 @@
+---
+  environment: "production"
+
+  web:
+    enable: yes
+    display_warnings: no
+    publish: yes
+
+  security:
+    user:
+      login: "admin"
+      password: "admin"
+
+  email:
+    smtp:
+      host: "127.0.0.1"
+      port: 25
+
+  tempdir: "temp"
+
+  logging:
+      web: yes
+      system: yes
+      path: "logs"
+      filename: "log_%starttime"
+      console: yes
+
+  developer_email: "muyou.prj@gmail.com"
+  admin_email: "example@example.com"
+
+  local_codepage: "CP1251"
+
+  components:
+    VisualStudio10Builder:
+      lib_path: "C:/Users/Eskat0n/Lib/UnitTest++/UnitTest++/Debug"
+      include_path: "C:/Users/Eskat0n/Lib/UnitTest++/UnitTest++/src"
+      lib: "UnitTest++.vsnet2010.lib"
+    HTMLTableReportBuilder:
+      output: "reports"
+    MoodleSourceProvider:
+      szip_path: "C:/Program Files/7-Zip/7z.exe"

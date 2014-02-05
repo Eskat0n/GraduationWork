@@ -1,0 +1,31 @@
+!!!
+%html
+    %head
+        %title= "Ошибка / #{INSTANCE_NAME}"
+        %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+
+        %link(rel='shortcut icon' type='image/x-icon' href='/favicon.ico')
+        %link(rel='stylesheet' type='text/css' href='/styles.css')
+    %body
+        = partial :admin_panel
+        %h2#title= INSTANCE_NAME
+        #navigation
+            %span.nav-item &larr;
+            %a.nav-item(href='/') На главную
+        #content-wrap
+            %h2#content-title= @name
+            #error-content
+                %p= @description
+                - unless @message.nil?
+                    %p
+                        %strong Причина:
+                        %span#reason-text= @message
+                - unless @type.nil?
+                    %p
+                        %strong Тип ошибки:
+                        %span#reason-text= @type
+                    %p.subscript За подробностями об ошибке данного типа обратитесь к документации или к поставщику системы
+                - unless @mail_link.nil?
+                    %br
+                    %p
+                        %a.mail(href=@mail_link) Отправить отчет об ошибке

@@ -1,0 +1,50 @@
+@import "reset.css";
+
+/* Overall
+----------------------------------------------------- */
+html, body { font-family: Helvetica,sans-serif; }
+body {
+    margin: 0 auto;
+    width: 400px;
+}
+
+#logon {
+    margin-top: 40%;
+
+    background-color: #e6e5e3;
+    border: 1px solid #cecbc6;
+
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Logo
+----------------------------------------------------- */
+h3 {
+    margin: 5px 0 10px 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+
+    text-align: center;
+}
+
+/* Form
+----------------------------------------------------- */
+form ul {
+    padding: 0px 15px 3px 10px;
+}
+form ul li { list-style: none; margin-bottom: 7px; }
+form input { font-size: 1.8em; width: 100%; }
+form input[type=submit] {
+    margin-top: 10px;
+
+    outline: none;
+    background-color: #CECBC6;
+    font-family: Verdana,sans;
+    
+    font-size: 1.2em;
+
+    width: inherit;
+}
+.error { color: red; }

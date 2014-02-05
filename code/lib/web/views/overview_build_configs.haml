@@ -1,0 +1,10 @@
+#build_configs.list
+    - @build_configs.each do |bc|
+        .build_config.list-item
+            %h4
+                %a.softlink(href="/build_config/#{bc.id}")= bc.name
+            %hr
+            .summary= "Связанных проектов: #{bc.projects.size}"
+            %ul.actions
+                %li.delete-item
+                    %a(href="/build_config/delete/#{bc.id}" title='Удалить конфигурацию сборки' data-target-title="#{bc.name}")

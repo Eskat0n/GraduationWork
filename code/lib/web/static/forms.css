@@ -1,0 +1,36 @@
+/* Overall forms styles
+----------------------------------------------------- */
+form { margin-left: 8px; }
+form input[readonly] { /*color: #7c7a7d;*/ background-color: #EBEBE4; }
+
+dl.field { margin-bottom: 12px; }
+dl.field dt.field-label { margin-bottom: 2px; }
+dl.field dd.field-edit { }
+dl.field dd.hint, div.hint { font-style: italic; color: #555; font-size: .8em; }
+dl.field span.info, #details span.info { margin: 5px 0; font-style: italic; }
+dl.field dd.field-edit input, dl.field dd.field-edit select { width: 70%; }
+select { margin-left: 1px; }
+dl.field dd.error { color: red; }
+
+.submit input[type=submit] {
+    outline: none;
+    background-color: #CECBC6;
+    font-family: Verdana,sans;
+    font-size: 1.1em;
+}
+
+/* Custom controls styles
+----------------------------------------------------- */
+dl.field dd.field-edit.param { margin: 5px 0; }
+dl.field dd.field-edit.param input.param-name { width: 10%; margin-right: 15px; }
+dl.field dd.field-edit.param input.param-name.required { font-weight: bold; }
+dl.field dd.field-edit.param input.param-value { width: 46%; }
+
+dl.field dd.field-edit a.add-param { 
+    text-decoration: none; 
+    color: black;
+    background: transparent url(/icons/plus_icon.png) no-repeat left center;
+    padding-left: 17px;
+    margin-top: 3px;
+}
+dl.field dd.field-edit a.add-param:hover { opacity: 0.7; }

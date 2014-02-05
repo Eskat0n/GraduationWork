@@ -1,0 +1,14 @@
+#log
+    %span.log-nav-item
+        - unless @prev_log.nil?
+            %span.nav-item &larr;
+            %a.nav-item(href="/system/log/#{@prev_log}") Предыдущий
+        - else
+            %span.nav-item.current &larr; Предыдущий
+    %span.log-nav-item
+        - unless @next_log.nil?
+            %a.nav-item(href="/system/log/#{@next_log}") Следующий
+            %span.nav-item &rarr;
+        - else
+            %span.nav-item.current Следующий &rarr;
+    #content= @log_content

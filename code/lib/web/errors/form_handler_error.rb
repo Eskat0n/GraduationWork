@@ -1,0 +1,2 @@
+class FormHandlerError < RuntimeError
+end

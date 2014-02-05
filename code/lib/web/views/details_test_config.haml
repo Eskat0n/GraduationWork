@@ -1,0 +1,17 @@
+#actions
+    %ul.actions
+        %li.delete-item
+            %a(href="/test_config/delete/#{@test_config.id}" title='Удалить конфигурацию запуска тестов' data-target-title="#{@test_config.name}")
+#details
+    #linked-projects.line= "Число связанных проектов: #{@test_config.projects.size}"
+    %hr.line
+    #params.line
+        %h5 Дополнительные параметры:
+        - unless @test_config.params.empty?
+            %ul.params
+                - @test_config.params.each do |name, value|
+                    %li.param
+                        %span.name= "#{name}:"
+                        %span.value= value
+        - else
+            %span.info Отсутствуют

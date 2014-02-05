@@ -1,0 +1,10 @@
+#report_configs.list
+    - @report_configs.each do |rc|
+        .report_config.list-item
+            %h4
+                %a.softlink(href="/report_config/#{rc.id}")= rc.name
+            %hr
+            .summary= "Связанных проектов: #{rc.projects.size}"
+            %ul.actions
+                %li.delete-item
+                    %a(href="/report_config/delete/#{rc.id}" title='Удалить конфигурацию отчетов' data-target-title="#{rc.name}")

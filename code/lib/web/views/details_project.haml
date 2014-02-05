@@ -1,0 +1,54 @@
+#actions
+    %ul.actions
+        %li.edit-item
+            %a(href="/project/edit/#{@project.id}" title='Редактировать проект')
+        %li.delete-item
+            %a(href="/project/delete/#{@project.id}" title='Удалить проект' data-target-title="#{@project.title}")
+#details
+    #revision.line= "Ревизия: #{@project.revision or 'Ревизия отсутствует'}"
+    #description.line= "Описание: #{@project.description or 'Описание отсутствует'}"
+    #state.line 
+        %span Состояние: 
+        %span(role='project-state' data-project-id="#{@project.id}")= @project.state_description
+    %hr.line
+    #source.line
+        - if @project.source.nil?
+            %span Данному проекту не назначен ни один источник исходных кодов. Вы можете сделать это
+            %a(href="/project/add/source/#{@project.id}") здесь
+        - else
+            %span Источник исходных кодов:
+            %a(href="/source/#{@project.source.id}")= @project.source.name
+    #build-config.line
+        - if @project.build_config.nil?
+            %span Данному проекту не назначена ни одна конфигурация сборки. Вы можете сделать это
+            %a(href="/project/add/build_config/#{@project.id}") здесь
+        - else
+            %span Конфигурация сборки:
+            %a(href="/build_config/#{@project.build_config.id}")= @project.build_config.name
+    #test-config.line
+        - if @project.test_config.nil?
+            %span Данному проекту не назначена ни одна конфигурация сборки. Вы можете сделать это
+            %a(href="/project/add/test_config/#{@project.id}") здесь
+        - else
+            %span Конфигурация запуска тестов:
+            %a(href="/test_config/#{@project.test_config.id}")= @project.test_config.name
+    #reports-config.line
+        - if @project.report_config.nil?
+            %span Данному проекту не назначена ни одна конфигурация отчетов. Вы можете сделать это
+            %a(href="/project/add/report_config/#{@project.id}") здесь
+        - else
+            %span Конфигурация отчетов:
+            %a(href="/report_config/#{@project.report_config.id}")= @project.report_config.name
+    %hr.line
+    #reports.line
+        - if @project.reports.empty?
+            %span Отчеты для данного проекта отсутствуют
+        - else
+            %h5 Отчеты:
+            %ul.reports
+                - @project.reports.each do |r|
+                    %li.report
+                        %span.date= "[ #{r.date.to_time.to_longtime} ]"
+                        %span.filename
+                            %a(href="/project/report/#{r.id}")= r.filename
+

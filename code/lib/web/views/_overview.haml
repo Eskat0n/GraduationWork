@@ -1,0 +1,45 @@
+!!!
+%html
+    %head
+        %title= title
+        %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+
+        %link(rel='shortcut icon' type='image/x-icon' href='/favicon.ico')
+        %link(rel='stylesheet' type='text/css' href='/styles.css')
+
+        %script(type='text/javascript' src='/scripts/jquery-1.5.2.min.js')
+        %script(type='text/javascript' src='/scripts/jquery-ui-1.8.12.custom.min.js')
+        %script(type='text/javascript' src='/scripts/sledgehammer.js')
+    %body
+        - if defined? @warnings_count_popup
+            = partial :warnings_notify
+        = partial :admin_panel
+        %h2#title= INSTANCE_NAME
+        %dl#navigation
+            %dt.sublabel Обзор &rarr;
+            %dd.actions
+                %a.nav-item(href='/projects') Проекты
+                %a.nav-item(href='/sources') Источники исходных кодов
+                %a.nav-item(href='/build_configs') Конф-ции сборки
+                %a.nav-item(href='/test_configs') Конф-ции запуска тестов
+                %a.nav-item(href='/report_configs') Конф-ции отчетов
+                %a.nav-item(href='/components') Компоненты
+        #content-wrap
+            #toolbar
+                %span.action(role='menu-header' data-menu-id='add') Добавить
+                %div(role='menu-body' data-menu-id='add')
+                    %ul.menu-items
+                        %li
+                            %a.softlink(href='/project/new') Проект
+                        %li
+                            %a.softlink(href='/source/new') Источник исходных кодов
+                        %li
+                            %a.softlink(href='/build_config/new') Конфигурацию сборки
+                        %li
+                            %a.softlink(href='/test_config/new') Конфигурацию запуска тестов
+                        %li
+                            %a.softlink(href='/report_config/new') Конфигурацию отчетов
+                - if defined? additional_tools
+                    = additional_tools
+            %h2#content-title= title
+            = yield

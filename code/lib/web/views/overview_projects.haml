@@ -1,0 +1,13 @@
+#projects.list
+    - @projects.each do |p|
+        .project.list-item
+            %h4
+                %a.softlink(href="/project/#{p.id}")= p.title
+                %span.state(role='project-state' data-project-id="#{p.id}")= p.state_description
+            %hr
+            .summary= "Отчетов: #{p.reports.size}"
+            %ul.actions
+                %li.edit-item
+                    %a(href="/project/edit/#{p.id}" title='Редактировать проект')
+                %li.delete-item
+                    %a(href="/project/delete/#{p.id}" title='Удалить проект' data-target-title="#{p.title}")

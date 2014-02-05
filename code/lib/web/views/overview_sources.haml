@@ -1,0 +1,10 @@
+#sources.list
+    - @sources.each do |s|
+        .source.list-item
+            %h4
+                %a.softlink(href="/source/#{s.id}")= s.name
+            %hr
+            .summary= "Связанных проектов: #{s.projects.size}"
+            %ul.actions
+                %li.delete-item
+                    %a(href="/source/delete/#{s.id}" title='Удалить источник исходных кодов' data-target-title="#{s.name}")

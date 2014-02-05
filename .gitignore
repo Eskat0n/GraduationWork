@@ -1,0 +1,6 @@
+code/nbproject/private/*
+code/lib/temp/*
+code/lib/reports/*
+code/lib/system_errors.txt
+code/lib/logs/*
+code/lib/installer/.sqlite3_redist/*
